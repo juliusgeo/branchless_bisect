@@ -11,7 +11,7 @@ And then I compared it against `sortedcontainers`'s implementation of bisect_lef
 Pretty handily beats it! However, most people using Python would probably be using `bisect_left` from the `bisect` library in the stdlib.
 To try to beat that implementation, though, I will have to descend into C-land. Here's my implementation as a Python C-extension:
 
-https://github.com/juliusgeo/branchless_bisect/blob/f3dd6e38182b6489700c1d0456e78027aba50efb/submodule/main.c#L15-L48
+https://github.com/juliusgeo/branchless_bisect/blob/f3dd6e38182b6489700c1d0456e78027aba50efb/submodule/main.c#L15-L45
 
 ![image](https://user-images.githubusercontent.com/2801178/235347364-f06bd1ad-f362-4254-ba93-b261cce1c9bc.png)
 
