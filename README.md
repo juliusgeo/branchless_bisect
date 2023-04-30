@@ -75,5 +75,18 @@ static PyObject* bl_bisect_left(PyObject *self, PyObject *args) {
 ![image](https://user-images.githubusercontent.com/2801178/235347364-f06bd1ad-f362-4254-ba93-b261cce1c9bc.png)
 
 That beats it as well! Admittedly this is only for arrays of size up to `2**29`, but still pretty cool.
+I also checked whether it successfully compiled with a `CMOVE` instruction:
+```
 
+  ba:	48 89 c7             	mov    %rax,%rdi
+  bd:	31 d2                	xor    %edx,%edx
+  bf:	e8 00 00 00 00       	call   c4 <_bl_bisect_left+0xa4>
+  c4:	83 f8 01             	cmp    $0x1,%eax
+  c7:	4c 0f 44 fb          	cmove  %rbx,%r15
+  cb:	48 83 fb 02          	cmp    $0x2,%rbx
+  cf:	73 35                	jae    106 <_bl_bisect_left+0xe6>
+  d1:	4d 39 f7             	cmp    %r14,%r15
+  d4:	7d 5e                	jge    134 <_bl_bisect_left+0x114>
+```
+It does! You can see the full compiled dump in `objdump_output.txt`.
 This repo contains the submodule and benchmarking code I used to obtain these results.
