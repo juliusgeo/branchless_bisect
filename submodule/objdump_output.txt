@@ -1,0 +1,206 @@
+In archive build/temp.macosx-10.9-universal2-cpython-311/main.o:
+
+i386:x86-64:     file format mach-o-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <_PyInit_bl_bl>:
+   0:	55                   	push   %rbp
+   1:	48 89 e5             	mov    %rsp,%rbp
+   4:	48 8d 3d 00 00 00 00 	lea    0x0(%rip),%rdi        # b <_PyInit_bl_bl+0xb>
+   b:	be f5 03 00 00       	mov    $0x3f5,%esi
+  10:	5d                   	pop    %rbp
+  11:	e9 00 00 00 00       	jmp    16 <_PyInit_bl_bl+0x16>
+  16:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+  1d:	00 00 00 
+
+0000000000000020 <_bl_bisect_left>:
+  20:	55                   	push   %rbp
+  21:	48 89 e5             	mov    %rsp,%rbp
+  24:	41 57                	push   %r15
+  26:	41 56                	push   %r14
+  28:	53                   	push   %rbx
+  29:	48 83 ec 18          	sub    $0x18,%rsp
+  2d:	48 89 f7             	mov    %rsi,%rdi
+  30:	48 8d 35 f5 01 00 00 	lea    0x1f5(%rip),%rsi        # 22c <_bl_bl_methods+0x6c>
+  37:	31 db                	xor    %ebx,%ebx
+  39:	48 8d 55 e0          	lea    -0x20(%rbp),%rdx
+  3d:	48 8d 4d d8          	lea    -0x28(%rbp),%rcx
+  41:	31 c0                	xor    %eax,%eax
+  43:	e8 00 00 00 00       	call   48 <_bl_bisect_left+0x28>
+  48:	85 c0                	test   %eax,%eax
+  4a:	0f 84 f1 00 00 00    	je     141 <_bl_bisect_left+0x121>
+  50:	48 8b 7d e0          	mov    -0x20(%rbp),%rdi
+  54:	e8 00 00 00 00       	call   59 <_bl_bisect_left+0x39>
+  59:	48 85 c0             	test   %rax,%rax
+  5c:	74 41                	je     9f <_bl_bisect_left+0x7f>
+  5e:	49 89 c6             	mov    %rax,%r14
+  61:	bb 01 00 00 00       	mov    $0x1,%ebx
+  66:	48 83 f8 02          	cmp    $0x2,%rax
+  6a:	7c 23                	jl     8f <_bl_bisect_left+0x6f>
+  6c:	bb 01 00 00 00       	mov    $0x1,%ebx
+  71:	4c 89 f1             	mov    %r14,%rcx
+  74:	4c 89 f0             	mov    %r14,%rax
+  77:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+  7e:	00 00 
+  80:	48 d1 e8             	shr    %rax
+  83:	48 01 db             	add    %rbx,%rbx
+  86:	48 83 f9 03          	cmp    $0x3,%rcx
+  8a:	48 89 c1             	mov    %rax,%rcx
+  8d:	77 f1                	ja     80 <_bl_bisect_left+0x60>
+  8f:	4c 39 f3             	cmp    %r14,%rbx
+  92:	75 12                	jne    a6 <_bl_bisect_left+0x86>
+  94:	45 31 ff             	xor    %r15d,%r15d
+  97:	48 83 fb 02          	cmp    $0x2,%rbx
+  9b:	73 69                	jae    106 <_bl_bisect_left+0xe6>
+  9d:	eb 32                	jmp    d1 <_bl_bisect_left+0xb1>
+  9f:	31 ff                	xor    %edi,%edi
+  a1:	e9 93 00 00 00       	jmp    139 <_bl_bisect_left+0x119>
+  a6:	48 8b 7d e0          	mov    -0x20(%rbp),%rdi
+  aa:	48 8d 73 ff          	lea    -0x1(%rbx),%rsi
+  ae:	e8 00 00 00 00       	call   b3 <_bl_bisect_left+0x93>
+  b3:	48 8b 75 d8          	mov    -0x28(%rbp),%rsi
+  b7:	45 31 ff             	xor    %r15d,%r15d
+  ba:	48 89 c7             	mov    %rax,%rdi
+  bd:	31 d2                	xor    %edx,%edx
+  bf:	e8 00 00 00 00       	call   c4 <_bl_bisect_left+0xa4>
+  c4:	83 f8 01             	cmp    $0x1,%eax
+  c7:	4c 0f 44 fb          	cmove  %rbx,%r15
+  cb:	48 83 fb 02          	cmp    $0x2,%rbx
+  cf:	73 35                	jae    106 <_bl_bisect_left+0xe6>
+  d1:	4d 39 f7             	cmp    %r14,%r15
+  d4:	7d 5e                	jge    134 <_bl_bisect_left+0x114>
+  d6:	48 8b 7d e0          	mov    -0x20(%rbp),%rdi
+  da:	4c 89 fe             	mov    %r15,%rsi
+  dd:	e8 00 00 00 00       	call   e2 <_bl_bisect_left+0xc2>
+  e2:	48 8b 75 d8          	mov    -0x28(%rbp),%rsi
+  e6:	48 89 c7             	mov    %rax,%rdi
+  e9:	31 d2                	xor    %edx,%edx
+  eb:	e8 00 00 00 00       	call   f0 <_bl_bisect_left+0xd0>
+  f0:	31 ff                	xor    %edi,%edi
+  f2:	85 c0                	test   %eax,%eax
+  f4:	40 0f 95 c7          	setne  %dil
+  f8:	eb 3c                	jmp    136 <_bl_bisect_left+0x116>
+  fa:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+ 100:	48 83 fb 01          	cmp    $0x1,%rbx
+ 104:	76 cb                	jbe    d1 <_bl_bisect_left+0xb1>
+ 106:	48 d1 fb             	sar    %rbx
+ 109:	49 8d 34 1f          	lea    (%r15,%rbx,1),%rsi
+ 10d:	4c 39 f6             	cmp    %r14,%rsi
+ 110:	7d ee                	jge    100 <_bl_bisect_left+0xe0>
+ 112:	48 8b 7d e0          	mov    -0x20(%rbp),%rdi
+ 116:	e8 00 00 00 00       	call   11b <_bl_bisect_left+0xfb>
+ 11b:	48 8b 75 d8          	mov    -0x28(%rbp),%rsi
+ 11f:	48 89 c7             	mov    %rax,%rdi
+ 122:	31 d2                	xor    %edx,%edx
+ 124:	e8 00 00 00 00       	call   129 <_bl_bisect_left+0x109>
+ 129:	48 98                	cltq
+ 12b:	48 0f af c3          	imul   %rbx,%rax
+ 12f:	49 01 c7             	add    %rax,%r15
+ 132:	eb cc                	jmp    100 <_bl_bisect_left+0xe0>
+ 134:	31 ff                	xor    %edi,%edi
+ 136:	4c 01 ff             	add    %r15,%rdi
+ 139:	e8 00 00 00 00       	call   13e <_bl_bisect_left+0x11e>
+ 13e:	48 89 c3             	mov    %rax,%rbx
+ 141:	48 89 d8             	mov    %rbx,%rax
+ 144:	48 83 c4 18          	add    $0x18,%rsp
+ 148:	5b                   	pop    %rbx
+ 149:	41 5e                	pop    %r14
+ 14b:	41 5f                	pop    %r15
+ 14d:	5d                   	pop    %rbp
+ 14e:	c3                   	ret
+
+aarch64:     file format mach-o-arm64
+
+
+Disassembly of section .text:
+
+0000000000000000 <_PyInit_bl_bl>:
+   0:	90000000 	adrp	x0, 158 <_bl_bl_module>
+   4:	91000000 	add	x0, x0, #0x0
+   8:	52807ea1 	mov	w1, #0x3f5                 	// #1013
+   c:	14000000 	b	0 <_PyModule_Create2>
+
+0000000000000010 <_bl_bisect_left>:
+  10:	d10143ff 	sub	sp, sp, #0x50
+  14:	a90257f6 	stp	x22, x21, [sp, #32]
+  18:	a9034ff4 	stp	x20, x19, [sp, #48]
+  1c:	a9047bfd 	stp	x29, x30, [sp, #64]
+  20:	910103fd 	add	x29, sp, #0x40
+  24:	aa0103e0 	mov	x0, x1
+  28:	910043e8 	add	x8, sp, #0x10
+  2c:	910063e9 	add	x9, sp, #0x18
+  30:	a90023e9 	stp	x9, x8, [sp]
+  34:	90000001 	adrp	x1, 22c <l_.str.3>
+  38:	91000021 	add	x1, x1, #0x0
+  3c:	94000000 	bl	0 <__PyArg_ParseTuple_SizeT>
+  40:	34000280 	cbz	w0, 90 <_bl_bisect_left+0x80>
+  44:	f9400fe0 	ldr	x0, [sp, #24]
+  48:	94000000 	bl	0 <_PyList_Size>
+  4c:	b4000780 	cbz	x0, 13c <_bl_bisect_left+0x12c>
+  50:	aa0003f3 	mov	x19, x0
+  54:	52800035 	mov	w21, #0x1                   	// #1
+  58:	f100081f 	cmp	x0, #0x2
+  5c:	540000eb 	b.lt	78 <_bl_bisect_left+0x68>  // b.tstop
+  60:	aa1303e8 	mov	x8, x19
+  64:	d341fd09 	lsr	x9, x8, #1
+  68:	d37ffab5 	lsl	x21, x21, #1
+  6c:	f1000d1f 	cmp	x8, #0x3
+  70:	aa0903e8 	mov	x8, x9
+  74:	54ffff88 	b.hi	64 <_bl_bisect_left+0x54>  // b.pmore
+  78:	eb1302bf 	cmp	x21, x19
+  7c:	54000161 	b.ne	a8 <_bl_bisect_left+0x98>  // b.any
+  80:	d2800014 	mov	x20, #0x0                   	// #0
+  84:	f1000abf 	cmp	x21, #0x2
+  88:	540003e2 	b.cs	104 <_bl_bisect_left+0xf4>  // b.hs, b.nlast
+  8c:	14000011 	b	d0 <_bl_bisect_left+0xc0>
+  90:	d2800000 	mov	x0, #0x0                   	// #0
+  94:	a9447bfd 	ldp	x29, x30, [sp, #64]
+  98:	a9434ff4 	ldp	x20, x19, [sp, #48]
+  9c:	a94257f6 	ldp	x22, x21, [sp, #32]
+  a0:	910143ff 	add	sp, sp, #0x50
+  a4:	d65f03c0 	ret
+  a8:	f9400fe0 	ldr	x0, [sp, #24]
+  ac:	d10006a1 	sub	x1, x21, #0x1
+  b0:	94000000 	bl	0 <_PyList_GetItem>
+  b4:	f9400be1 	ldr	x1, [sp, #16]
+  b8:	52800002 	mov	w2, #0x0                   	// #0
+  bc:	94000000 	bl	0 <_PyObject_RichCompareBool>
+  c0:	7100041f 	cmp	w0, #0x1
+  c4:	9a9f02b4 	csel	x20, x21, xzr, eq	// eq = none
+  c8:	f1000abf 	cmp	x21, #0x2
+  cc:	540001c2 	b.cs	104 <_bl_bisect_left+0xf4>  // b.hs, b.nlast
+  d0:	eb13029f 	cmp	x20, x19
+  d4:	5400030a 	b.ge	134 <_bl_bisect_left+0x124>  // b.tcont
+  d8:	f9400fe0 	ldr	x0, [sp, #24]
+  dc:	aa1403e1 	mov	x1, x20
+  e0:	94000000 	bl	0 <_PyList_GetItem>
+  e4:	f9400be1 	ldr	x1, [sp, #16]
+  e8:	52800002 	mov	w2, #0x0                   	// #0
+  ec:	94000000 	bl	0 <_PyObject_RichCompareBool>
+  f0:	7100001f 	cmp	w0, #0x0
+  f4:	1a9f07e8 	cset	w8, ne	// ne = any
+  f8:	14000010 	b	138 <_bl_bisect_left+0x128>
+  fc:	f10006bf 	cmp	x21, #0x1
+ 100:	54fffe89 	b.ls	d0 <_bl_bisect_left+0xc0>  // b.plast
+ 104:	9341feb5 	asr	x21, x21, #1
+ 108:	8b150281 	add	x1, x20, x21
+ 10c:	eb13003f 	cmp	x1, x19
+ 110:	54ffff6a 	b.ge	fc <_bl_bisect_left+0xec>  // b.tcont
+ 114:	f9400fe0 	ldr	x0, [sp, #24]
+ 118:	94000000 	bl	0 <_PyList_GetItem>
+ 11c:	f9400be1 	ldr	x1, [sp, #16]
+ 120:	52800002 	mov	w2, #0x0                   	// #0
+ 124:	94000000 	bl	0 <_PyObject_RichCompareBool>
+ 128:	93407c08 	sxtw	x8, w0
+ 12c:	9b0852b4 	madd	x20, x21, x8, x20
+ 130:	17fffff3 	b	fc <_bl_bisect_left+0xec>
+ 134:	d2800008 	mov	x8, #0x0                   	// #0
+ 138:	8b140100 	add	x0, x8, x20
+ 13c:	94000000 	bl	0 <_PyLong_FromLong>
+ 140:	a9447bfd 	ldp	x29, x30, [sp, #64]
+ 144:	a9434ff4 	ldp	x20, x19, [sp, #48]
+ 148:	a94257f6 	ldp	x22, x21, [sp, #32]
+ 14c:	910143ff 	add	sp, sp, #0x50
+ 150:	d65f03c0 	ret

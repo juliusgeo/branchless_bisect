@@ -30,21 +30,18 @@ static PyObject* bl_bisect_left(PyObject *self, PyObject *args) {
 
     long step = bit_floor_shifted(length);
 
-    if (step != length && PyObject_RichCompareBool(PyList_GetItem(list_obj, begin + step - 1), value, Py_LT) == 1) {
+    if (step != length && PyObject_RichCompareBool(PyList_GetItem(list_obj, begin + step - 1), value, Py_LT)) {
         begin += step;
         length -= step;
     }
 
-    long i = begin;
     long next = 0;
     for (step >>= 1; step != 0; step >>=1) {
-        next = i + step;
-        if (next < size) {
-            i += PyObject_RichCompareBool(PyList_GetItem(list_obj, next), value, Py_LT) * step;
+        if ((next = begin + step) < size) {
+            begin += PyObject_RichCompareBool(PyList_GetItem(list_obj, next), value, Py_LT) * step;
         }
     }
-    long result = i + (i < size && PyObject_RichCompareBool(PyList_GetItem(list_obj, i), value, Py_LT));
-    return PyLong_FromLong(result);
+    return PyLong_FromLong(begin + (begin < size && PyObject_RichCompareBool(PyList_GetItem(list_obj, begin), value, Py_LT)));
 }
 
 
