@@ -89,4 +89,8 @@ I also checked whether it successfully compiled with a `CMOVE` instruction:
   d4:	7d 5e                	jge    134 <_bl_bisect_left+0x114>
 ```
 It does! You can see the full compiled dump in `objdump_output.txt`.
+Now, here are all of them combined (what you will get if you run `main.py`):
+
+![image](https://user-images.githubusercontent.com/2801178/235348480-d843b4ed-23b9-4d17-b055-1d65ea45f5a7.png)
+
 This repo contains the submodule and benchmarking code I used to obtain these results.
