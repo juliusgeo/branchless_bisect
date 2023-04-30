@@ -1,0 +1,6 @@
+build
+/venv/**
+.idea
+**/dist/
+*.so
+*.egg-info
