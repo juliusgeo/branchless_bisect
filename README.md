@@ -16,6 +16,13 @@ https://github.com/juliusgeo/branchless_bisect/blob/a98c576dd57be271bd4a2d60d4fe
 
 ![image](/images/2.jpg "Figure 2")
 
+Now, you might be asking, how does it perform on non-powers-of-two? I made a graph using the following parameters:
+```python
+sizes = [i for i in range(0, 2**15)]
+```
+![image](/images/4.jpg "Figure 4")
+
+
 That beats it as well! Admittedly this is only for arrays of size up to `2**29`, but still pretty cool.
 I also checked whether it successfully compiled with a `CMOVE` instruction:
 
