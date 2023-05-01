@@ -1,3 +1,4 @@
+from operator import __le__, __lt__
 def bisect(arr, value, compare):
     begin,end=0,len(arr)
     length=end-begin
@@ -14,7 +15,7 @@ def bisect(arr, value, compare):
         begin+=s*compare(arr[s+begin], value)
     return begin+int(compare(arr[begin], value))
 def branchless_bisect_left(arr, value):
-    return bisect(arr, value, int.__lt__)
+    return bisect(arr, value, __lt__)
 
 def branchless_bisect_right(arr, value):
-    return bisect(arr, value, int.__le__)
+    return bisect(arr, value, __le__)
