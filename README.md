@@ -20,7 +20,7 @@ Now, you might be asking, how does it perform on non-powers-of-two? I made a gra
 ```python
 sizes = [i for i in range(0, 2**15)]
 ```
-![image](/images/4.jpg "Figure 4")
+![image](/images/4.jpeg "Figure 4")
 
 
 That beats it as well! Admittedly this is only for arrays of size up to `2**29`, but still pretty cool.
