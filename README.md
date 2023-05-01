@@ -3,7 +3,7 @@
 I recently read this article: https://probablydance.com/2023/04/27/beautiful-branchless-binary-search/, and I was inspired.
 First I implemented the same algorithm in pure Python:
 
-https://github.com/juliusgeo/branchless_bisect/blob/67c1f89ccad442d2568441cf23a5b034912b9933/main.py#L1-L15
+https://github.com/juliusgeo/branchless_bisect/blob/81fa8050c92d69e147a829bfd065b6f0bcee0bcf/main.py#L1-L15
 
 And then I compared it against `sortedcontainers`'s implementation of bisect_left across a large range of array sizes:
 
@@ -27,7 +27,7 @@ sizes = [i for i in range(0, 2**15)]
 
 I also checked whether it successfully compiled with a `CMOVE` instruction:
 
-https://github.com/juliusgeo/branchless_bisect/blob/67c1f89ccad442d2568441cf23a5b034912b9933/submodule/objdump_output.txt#L67-L71
+https://github.com/juliusgeo/branchless_bisect/blob/81fa8050c92d69e147a829bfd065b6f0bcee0bcf/submodule/objdump_output.txt#L67-L71
 
 It does! You can see the full compiled dump in `objdump_output.txt`.
 Now, here are all of them combined (what you will get if you run `main.py`):
