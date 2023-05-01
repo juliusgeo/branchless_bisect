@@ -11,14 +11,7 @@ static long bit_floor_shifted(long x) {
     }
     return res;
 }
-
-static PyObject* bl_bisect_left(PyObject *self, PyObject *args) {
-    PyObject *list_obj;
-    PyObject *value;
-
-    if (!PyArg_ParseTuple(args, "OO", &list_obj, &value))
-        return NULL;
-
+static PyObject* bisect(PyObject *list_obj, PyObject *value, PyObject *compare){
     long size = PyList_Size(list_obj);
 
     long begin = 0, end = size;
@@ -30,7 +23,7 @@ static PyObject* bl_bisect_left(PyObject *self, PyObject *args) {
 
     long step = bit_floor_shifted(length);
 
-    if (step != length && PyObject_RichCompareBool(PyList_GetItem(list_obj, begin + step - 1), value, Py_LT)) {
+    if (step != length && PyObject_RichCompareBool(PyList_GetItem(list_obj, begin + step - 1), value, compare)) {
         begin += step;
         length -= step;
     }
@@ -38,16 +31,31 @@ static PyObject* bl_bisect_left(PyObject *self, PyObject *args) {
     long next = 0;
     for (step >>= 1; step != 0; step >>=1) {
         if ((next = begin + step) < size) {
-            begin += PyObject_RichCompareBool(PyList_GetItem(list_obj, next), value, Py_LT) * step;
+            begin += PyObject_RichCompareBool(PyList_GetItem(list_obj, next), value, compare) * step;
         }
     }
-    return PyLong_FromLong(begin + (begin < size && PyObject_RichCompareBool(PyList_GetItem(list_obj, begin), value, Py_LT)));
+    return PyLong_FromLong(begin + (begin < size && PyObject_RichCompareBool(PyList_GetItem(list_obj, begin), value, compare)));
+}
+static PyObject* bl_bisect_left(PyObject *self, PyObject *args) {
+    PyObject *list_obj;
+    PyObject *value;
+    if (!PyArg_ParseTuple(args, "OO", &list_obj, &value))
+        return NULL;
+    return bisect(list_obj, value, Py_LT);
 }
 
-
+static PyObject* bl_bisect_right(PyObject *self, PyObject *args) {
+    PyObject *list_obj;
+    PyObject *value;
+    if (!PyArg_ParseTuple(args, "OO", &list_obj, &value))
+        return NULL;
+    return bisect(list_obj, value, Py_LE);
+}
 
 static PyMethodDef bl_bl_methods[] = {
     {"bl_bisect_left",  bl_bisect_left, METH_VARARGS,
+     "Branchless bisect left"},
+    {"bl_bisect_right",  bl_bisect_right, METH_VARARGS,
      "Branchless bisect left"},
     {NULL, NULL, 0, NULL}        /* Sentinel */
 };
