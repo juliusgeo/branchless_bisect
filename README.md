@@ -3,7 +3,7 @@
 I recently read this article: https://probablydance.com/2023/04/27/beautiful-branchless-binary-search/, and I was inspired.
 First I implemented the same algorithm in pure Python:
 
-https://github.com/juliusgeo/branchless_bisect/blob/ca42b29eeca38ed8331db5cb766077ff0e4ea4a1/main.py#L10-L19
+https://github.com/juliusgeo/branchless_bisect/blob/ca42b29eeca38ed8331db5cb766077ff0e4ea4a1/main.py#L0-L15
 
 And then I compared it against `sortedcontainers`'s implementation of bisect_left across a large range of array sizes:
 

@@ -1,13 +1,9 @@
-def bit_floor(x):
-    return 1 << (x.bit_length() - 1)
-
-
 def branchless_bisect_left(arr, value):
     begin, end=0,len(arr)
     length = end - begin
     if length == 0:
         return end
-    step = bit_floor(length)
+    step = 1 << (length.bit_length() - 1)
     if step != length and arr[step]<value:
         length -= step + 1
         if length == 0:
