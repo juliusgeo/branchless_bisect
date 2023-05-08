@@ -22,8 +22,7 @@
 #  define ASSUME(value) (void)__builtin_assume(value)
 #elif defined(__GNUC__) && (__GNUC__ > 4) && (__GNUC_MINOR__ >= 5)
 /* https://gcc.gnu.org/bugzilla/show_bug.cgi?id=79469
-   `__builtin_object_size(( (void)(value), "" ), 2)` checks whether the
-    expression is constant. */
+   `__builtin_object_size(( (void)(value), "" ), 2)` checks whether the expression is constant. */
 #  define ASSUME(value) \
     (__builtin_object_size(( (void)(value), "" ), 2) \
         ? ((value) ? (void)0 : __builtin_unreachable()) \
@@ -126,8 +125,7 @@ bl_bisect_left(PyObject *self,
     list_obj = args[0];
     if (UNLIKELY(!PyList_CheckExact(list_obj))) {
         PyErr_Format(PyExc_TypeError,
-                     "bisect_left() expected 'list' (argument 0), "
-                     "got '%.200s'",
+                     "bisect_left() expected 'list' (argument 0), got '%.200s'",
                      Py_TYPE(list_obj)->tp_name);
         return NULL;
     }
@@ -155,8 +153,7 @@ bl_bisect_right(PyObject *self,
     list_obj = args[0];
     if (UNLIKELY(!PyList_CheckExact(list_obj))) {
         PyErr_Format(PyExc_TypeError,
-                     "bisect_right() expected 'list' (argument 0), "
-                     "got '%.200s'",
+                     "bisect_right() expected 'list' (argument 0), got '%.200s'",
                      Py_TYPE(list_obj)->tp_name);
         return NULL;
     }
