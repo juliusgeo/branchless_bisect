@@ -37,7 +37,7 @@
 
 #endif /* __OPTIMIZE__ */
 
-static Py_ALWAYS_INLINE PyObject *
+static inline Py_ALWAYS_INLINE PyObject *
 bisect(PyObject *list_obj, PyObject *value, int compare)
 {
     int res, retres;
